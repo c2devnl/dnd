@@ -1,2 +1,2 @@
-# dnd
-https://play.google.com/store/apps/details?id=nl.c2dev.dnd
+# Advanced Do Not Distub
+This application provides a quicktile that simulates the do-not-disturb UI from Android 8.
