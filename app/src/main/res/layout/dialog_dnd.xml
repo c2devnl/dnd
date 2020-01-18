@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="?android:attr/panelBackground"
+    android:id="@+id/background"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="32dp"
+    android:paddingBottom="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/switchContainer"
+        android:orientation="horizontal"
+        android:paddingVertical="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textAppearance="@android:style/TextAppearance.Material.Title"
+            android:text="@string/doNotDisturb"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        
+        <Switch
+            android:id="@+id/dndEnabledSwitch"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/filterButtonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        android:background="@drawable/background_toggle_group">
+
+        <ToggleButton
+            android:id="@+id/silenceButton"
+            style="@style/ToggleButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textOn="@string/interruptionFilterNoneBtn"
+            android:textOff="@string/interruptionFilterNoneBtn"
+            android:textColor="@drawable/toggle_text_color"/>
+
+        <ToggleButton
+            android:id="@+id/alarmsButton"
+            style="@style/ToggleButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textOn="@string/interruptionFilterAlarmsBtn"
+            android:textOff="@string/interruptionFilterAlarmsBtn"/>
+
+        <ToggleButton
+            android:id="@+id/priorityButton"
+            style="@style/ToggleButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textOn="@string/interruptionFilterPriorityBtn"
+            android:textOff="@string/interruptionFilterPriorityBtn"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/modeButtonsContainer"
+        android:orientation="vertical"
+        android:layout_marginVertical="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:id="@+id/manualLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <RadioButton
+                android:id="@+id/manualButton"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+                android:text="@string/dndOptionManual"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="48dp"
+                android:gravity="center_vertical" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/timerLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <RadioButton
+                android:id="@+id/timerButton"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_marginStart="48dp"
+                android:layout_marginEnd="96dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/timerText"
+                    android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical" />
+
+                <TextView
+                    android:id="@+id/timerUntilText"
+                    android:textAppearance="@android:style/TextAppearance.Material.Small"
+                    android:textColor="?android:attr/colorControlActivated"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical" />
+
+            </LinearLayout>
+
+
+            <ImageView
+                style="@style/IconButton"
+                android:id="@+id/minusButton"
+                android:src="@drawable/ic_minus"
+                android:layout_gravity="end|center_horizontal"
+                android:layout_marginEnd="48dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+
+            <ImageView
+                style="@style/IconButton"
+                android:id="@+id/plusButton"
+                android:src="@drawable/ic_plus"
+                android:layout_gravity="end|center_horizontal"
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:visibility="gone"
+            android:id="@+id/scheduleLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <RadioButton
+                android:id="@+id/scheduleButton"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="48dp"
+                android:gravity="center_vertical" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            style="@android:style/Widget.Material.Button.Borderless"
+            android:id="@+id/moreSettingsButton"
+            android:text="@string/action_more_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            style="@android:style/Widget.Material.Button.Borderless"
+            android:id="@+id/doneButton"
+            android:text="@string/action_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

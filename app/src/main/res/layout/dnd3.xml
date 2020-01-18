@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/panelBackground">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="32dp"
+        android:text="@string/doNotDisturb"
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        app:layout_constraintEnd_toStartOf="@+id/dndEnabledSwitch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/dndEnabledSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:paddingEnd="16dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/titleText"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/filterButtonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/background_toggle_group"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleText">
+
+        <ToggleButton
+            android:id="@+id/silenceButton"
+            style="@style/ToggleButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@drawable/toggle_text_color"
+            android:textOff="@string/interruptionFilterNoneBtn"
+            android:textOn="@string/interruptionFilterNoneBtn" />
+
+        <ToggleButton
+            android:id="@+id/alarmsButton"
+            style="@style/ToggleButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textOff="@string/interruptionFilterAlarmsBtn"
+            android:textOn="@string/interruptionFilterAlarmsBtn" />
+
+        <ToggleButton
+            android:id="@+id/priorityButton"
+            style="@style/ToggleButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textOff="@string/interruptionFilterPriorityBtn"
+            android:textOn="@string/interruptionFilterPriorityBtn" />
+
+    </LinearLayout>
+
+    <RadioButton
+        android:id="@+id/manualButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/manualText"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/manualText"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:paddingEnd="16dp"
+        android:paddingStart="72dp"
+        android:text="@string/dndOptionManual"
+        android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filterButtonsContainer" />
+
+    <View
+        android:id="@+id/timerContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/manualText" />
+
+    <RadioButton
+        android:id="@+id/timerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/timerContainer"
+        app:layout_constraintStart_toStartOf="@+id/timerContainer"
+        app:layout_constraintTop_toTopOf="@+id/timerContainer" />
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+        app:layout_constraintBottom_toTopOf="@+id/timerUntilText"
+        app:layout_constraintStart_toStartOf="@+id/timerContainer"
+        app:layout_constraintTop_toTopOf="@+id/timerContainer"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="For 5 hours" />
+
+    <TextView
+        android:id="@+id/timerUntilText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:textColor="?android:attr/colorAccent"
+        app:layout_constraintBottom_toBottomOf="@+id/timerContainer"
+        app:layout_constraintStart_toStartOf="@+id/timerContainer"
+        app:layout_constraintTop_toBottomOf="@+id/timerText"
+        tools:text="Until 09:00" />
+
+    <Button
+        android:id="@+id/doneButton"
+        style="@android:style/Widget.Material.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/action_done"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alarmText" />
+
+    <Button
+        android:id="@+id/moreSettingsButton"
+        style="@android:style/Widget.Material.Light.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/action_more_settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/doneButton"
+        app:layout_constraintTop_toBottomOf="@+id/alarmText" />
+
+    <ImageView
+        style="@style/IconButton"
+        android:id="@+id/plusButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_plus"
+        app:layout_constraintBottom_toBottomOf="@+id/timerContainer"
+        app:layout_constraintEnd_toEndOf="@+id/timerContainer"
+        app:layout_constraintTop_toTopOf="@+id/timerContainer" />
+
+    <ImageView
+        style="@style/IconButton"
+        android:id="@+id/minusButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_minus"
+        app:layout_constraintBottom_toBottomOf="@+id/timerContainer"
+        app:layout_constraintEnd_toStartOf="@+id/plusButton"
+        app:layout_constraintTop_toTopOf="@+id/timerContainer" />
+
+    <TextView
+        android:id="@+id/alarmText"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:paddingStart="72dp"
+        android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timerContainer"
+        tools:text="Until Sat 9:00" />
+
+    <RadioButton
+        android:id="@+id/alarmButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/alarmText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/alarmText" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
